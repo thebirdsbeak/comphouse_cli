@@ -11,10 +11,9 @@ import pyperclip
 @click.option('--c', prompt='Name', help='Name of UK entity.')
 def company_details(c):
     '''Search for address, company number'''
-	#need to feed query in somehow
     query = c.replace(' limited', '')
     query = query.replace(' plc', '')
-    query = query.replace(' llp')
+    query = query.replace(' llp', '')
     record = []
     addresses = []
     companystrings = ''
