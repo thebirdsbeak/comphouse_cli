@@ -2,13 +2,10 @@
 Command line program for grabbing company address company_details
 '''
 
-import click
 from bs4 import BeautifulSoup
 import requests
 import pyperclip
 
-@click.command()
-@click.option('--c', prompt='Name', help='Name of UK entity.')
 def company_details(c):
     '''Search for address, company number'''
     query = c.replace(' limited', '')
@@ -55,6 +52,10 @@ def company_details(c):
         return "No companies found!"
     else:
         return
-
-if __name__ == '__main__':
-    company_details()
+while True:
+	c = input("Search > ")
+	if c:
+		if c.upper() == "Q":
+			quit()
+		else:
+			company_details(str(c))
